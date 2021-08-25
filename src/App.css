@@ -10,21 +10,5 @@ width: 1444px;
 margin: 0 auto;
 }
 
-.header {
-  grid-area: header;
-  background-color: aquamarine;
-}
 
-.header img{
-  width: 40px;
-}
 
-.nav{
-  grid-area: nav;
-  background: burlywood;
-}
-
-.content{
-  grid-area: cont;
-  background-color: cornsilk;
-}
