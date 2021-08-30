@@ -8,14 +8,12 @@ import Music from './Music/Music';
 
 const Content = () => {
   return (
-    <BrowserRouter>
-      <div className={s.content}>
-        <Route component={Dialogs} path="/messages" />
-        <Route component={Profile} path="/profile" />
-        <Route component={Music} path="/music" />
-        <Route component={News} path="/news" />
-      </div>
-    </BrowserRouter>
+    <div className={s.content}>
+      <Route component={Dialogs} path="/messages" />
+      <Route component={Profile} path="/profile" />
+      <Route component={Music} path="/music" />
+      <Route component={News} path="/news" />
+    </div>
   );
 };
 

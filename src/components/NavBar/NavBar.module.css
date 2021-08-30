@@ -1,18 +1,26 @@
 .nav {
   grid-area: nav;
-  background: burlywood;
+  background: #ffd194;
+  padding: 5px;
+  border-radius: 8px;
 }
 
 .nav li {
   list-style: none;
+  padding: 5px;
 }
 
 .nav a {
-  color: aliceblue;
+  color: white;
   text-decoration: none;
   font-size: 24px;
+  font-weight: 500;
 }
 
 .nav a:hover {
   opacity: 0.8;
+}
+
+.nav a.active {
+  color: #70e1f5;
 }

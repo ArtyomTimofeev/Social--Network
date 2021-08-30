@@ -1,4 +1,5 @@
 .content {
   grid-area: cont;
-  background-color: cornsilk;
+  background: linear-gradient(to bottom left, #70e1f5, #ffd194);
+  border-radius: 8px;
 }

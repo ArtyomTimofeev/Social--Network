@@ -1,14 +1,17 @@
 .app-wrapper {
   display: grid;
-  grid-template-areas: 
-  "header header"
-  "nav cont";
+  grid-template-areas:
+    'header header'
+    'nav cont';
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
-width: 1444px;
-margin: 0 auto;
+  width: 1216px;
+  margin: 0 auto;
 }
 
-
-
+.global {
+  width: 100%;
+  background-color: #fff0de;
+  height: 100vh;
+}
