@@ -1,6 +1,6 @@
 import react from 'react';
 import './App.css';
-import Profile from './components/Profile/Profile';
+import Content from './components/Content/Content';
 import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 
@@ -9,7 +9,7 @@ const App = () => {
     <div className="app-wrapper">
       <Header />
       <NavBar />
-      <Profile />
+      <Content />
     </div>
   );
 };
