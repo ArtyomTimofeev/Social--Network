@@ -9,7 +9,7 @@ import Music from './Music/Music';
 const Content = () => {
   return (
     <div className={s.content}>
-      <Route component={Dialogs} path="/messages" />
+      <Route component={Dialogs} path="/dialogs" />
       <Route component={Profile} path="/profile" />
       <Route component={Music} path="/music" />
       <Route component={News} path="/news" />
