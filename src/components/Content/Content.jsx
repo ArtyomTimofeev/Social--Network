@@ -6,11 +6,23 @@ import Dialogs from './Dialogs/Dialogs';
 import News from './News/News';
 import Music from './Music/Music';
 
-const Content = () => {
+const Content = (props) => {
   return (
     <div className={s.content}>
-      <Route component={Dialogs} path="/dialogs" />
-      <Route component={Profile} path="/profile" />
+      <Route
+        render={() => (
+          <Dialogs
+            messagesData={props.messagesData}
+            dialogsData={props.dialogsData}
+          />
+        )}
+        path="/dialogs"
+      />
+
+      <Route
+        render={() => <Profile postsData={props.postsData} />}
+        path="/profile"
+      />
       <Route component={Music} path="/music" />
       <Route component={News} path="/news" />
     </div>

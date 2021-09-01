@@ -6,6 +6,7 @@ const Post = (props) => {
     <div className={s.post}>
       <img src="https://vk-wiki.ru/wp-content/uploads/2019/04/male-user-profile-picture.png"></img>
       <p>{props.message}</p>
+      <p>{props.likesCount}</p>
     </div>
   );
 };
