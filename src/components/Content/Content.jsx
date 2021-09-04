@@ -10,17 +10,12 @@ const Content = (props) => {
   return (
     <div className={s.content}>
       <Route
-        render={() => (
-          <Dialogs
-            messagesData={props.messagesData}
-            dialogsData={props.dialogsData}
-          />
-        )}
+        render={() => <Dialogs dialogsPage={props.state.dialogsPage} />}
         path="/dialogs"
       />
 
       <Route
-        render={() => <Profile postsData={props.postsData} />}
+        render={() => <Profile profilePage={props.state.profilePage} />}
         path="/profile"
       />
       <Route component={Music} path="/music" />
