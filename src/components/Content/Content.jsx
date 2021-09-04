@@ -15,7 +15,12 @@ const Content = (props) => {
       />
 
       <Route
-        render={() => <Profile profilePage={props.state.profilePage} />}
+        render={() => (
+          <Profile
+            profilePage={props.state.profilePage}
+            addPost={props.addPost}
+          />
+        )}
         path="/profile"
       />
       <Route component={Music} path="/music" />

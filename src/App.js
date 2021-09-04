@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Content from './components/Content/Content';
@@ -12,7 +12,7 @@ const App = (props) => {
         <div className="app-wrapper">
           <Header />
           <NavBar />
-          <Content state={props.state} />
+          <Content state={props.state} addPost={props.addPost} />
         </div>
       </div>
     </BrowserRouter>
