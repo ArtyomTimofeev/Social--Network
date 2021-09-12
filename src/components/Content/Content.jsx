@@ -19,6 +19,7 @@ const Content = (props) => {
           <Profile
             profilePage={props.state.profilePage}
             addPost={props.addPost}
+            updateNewPostText={props.updateNewPostText}
           />
         )}
         path="/profile"

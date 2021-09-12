@@ -4,13 +4,17 @@ import NewPost from './NewPost/NewPost';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  let postsElements = props.postsData.map((post) => (
+  let postsElements = props.profilePage.postsData.map((post) => (
     <Post message={post.message} likesCount={post.likesCount} />
   ));
   return (
     <div className={s.postsBlock}>
       <h2>My posts</h2>
-      <NewPost addPost={props.addPost} />
+      <NewPost
+        newPostText={props.profilePage.newPostText}
+        addPost={props.addPost}
+        updateNewPostText={props.updateNewPostText}
+      />
       {postsElements}
     </div>
   );
