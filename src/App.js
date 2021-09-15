@@ -12,11 +12,7 @@ const App = (props) => {
         <div className="app-wrapper">
           <Header />
           <NavBar />
-          <Content
-            state={props.state}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText}
-          />
+          <Content state={props.state} dispatch={props.dispatch} />
         </div>
       </div>
     </BrowserRouter>
