@@ -1,5 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {
+  addMessageActionCreator,
+  updateNewMessageBody,
+} from '../../../redux/dialogs-reducer';
 import s from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './MessageItem/Message';
@@ -13,11 +17,30 @@ const Dialogs = (props) => {
     <Message message={message.message} />
   ));
 
+  let onNewMessageChange = (e) => {
+    let body = e.target.value;
+    props.dispatch(updateNewMessageBody(body));
+  };
+  let onSendMessageClick = () => {
+    props.dispatch(addMessageActionCreator());
+  };
   return (
     <div>
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>{dialogsElements}</div>
-        <div className={s.messages}>{messagesElements}</div>
+        <div className={s.messages}>
+          <div>{messagesElements}</div>
+          <div>
+            <textarea
+              onChange={onNewMessageChange}
+              placeholder="Введите сообщение"
+              value={props.dialogsPage.newMessageBody}
+            ></textarea>
+          </div>
+          <div>
+            <button onClick={onSendMessageClick}>Отправить</button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from '../../../../../redux/state';
+} from '../../../../../redux/profile-reducer';
 import s from './NewPost.module.css';
 
 const NewPost = (props) => {
@@ -27,7 +27,7 @@ const NewPost = (props) => {
         value={props.newPostText}
       ></textarea>
       <br />
-      <button onClick={addPost}>Отправить</button>
+      <button onClick={addPost}>Опубликовать</button>
     </div>
   );
 };

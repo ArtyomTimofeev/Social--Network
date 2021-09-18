@@ -10,7 +10,12 @@ const Content = (props) => {
   return (
     <div className={s.content}>
       <Route
-        render={() => <Dialogs dialogsPage={props.state.dialogsPage} />}
+        render={() => (
+          <Dialogs
+            dialogsPage={props.state.dialogsPage}
+            dispatch={props.dispatch}
+          />
+        )}
         path="/dialogs"
       />
 
