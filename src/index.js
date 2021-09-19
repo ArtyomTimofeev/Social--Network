@@ -5,17 +5,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = (store) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} dispatch={store.dispatch.bind(store)} />
+      <App store={store} />
     </React.StrictMode>,
     document.getElementById('root')
   );
 };
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree(store);
 
 store.subscribe(() => {
-  rerenderEntireTree(store.getState());
+  rerenderEntireTree(store);
 });

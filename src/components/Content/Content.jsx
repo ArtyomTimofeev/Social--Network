@@ -5,29 +5,17 @@ import Profile from './Profile/Profile';
 import Dialogs from './Dialogs/Dialogs';
 import News from './News/News';
 import Music from './Music/Music';
+import DialogsContainer from './Dialogs/DialogsContainer';
 
 const Content = (props) => {
   return (
     <div className={s.content}>
       <Route
-        render={() => (
-          <Dialogs
-            dialogsPage={props.state.dialogsPage}
-            dispatch={props.dispatch}
-          />
-        )}
+        render={() => <DialogsContainer store={props.store} />}
         path="/dialogs"
       />
 
-      <Route
-        render={() => (
-          <Profile
-            profilePage={props.state.profilePage}
-            dispatch={props.dispatch}
-          />
-        )}
-        path="/profile"
-      />
+      <Route render={() => <Profile store={props.store} />} path="/profile" />
       <Route component={Music} path="/music" />
       <Route component={News} path="/news" />
     </div>

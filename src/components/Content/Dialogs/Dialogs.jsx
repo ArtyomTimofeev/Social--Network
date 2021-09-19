@@ -1,9 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import {
-  addMessageActionCreator,
-  updateNewMessageBody,
-} from '../../../redux/dialogs-reducer';
+
 import s from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './MessageItem/Message';
@@ -19,10 +15,10 @@ const Dialogs = (props) => {
 
   let onNewMessageChange = (e) => {
     let body = e.target.value;
-    props.dispatch(updateNewMessageBody(body));
+    props.updateNewMessageBody(body);
   };
   let onSendMessageClick = () => {
-    props.dispatch(addMessageActionCreator());
+    props.addMessage();
   };
   return (
     <div>
