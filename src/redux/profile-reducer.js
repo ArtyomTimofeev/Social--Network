@@ -3,9 +3,9 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 let initialState = {
   postsData: [
-    { id: 1, message: 'Hello man, I wanna smoke', likesCount: 46 },
-    { id: 2, message: 'Okey, man! I have some G', likesCount: 42 },
-    { id: 3, message: 'Oh gays! I wanna too', likesCount: 41 },
+    { id: 1, message: 'Hello man!', likesCount: 46 },
+    { id: 2, message: '123', likesCount: 42 },
+    { id: 3, message: '345', likesCount: 41 },
   ],
   newPostText: '',
 };
