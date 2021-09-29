@@ -26,6 +26,12 @@ const NavBar = () => {
             Music
           </NavLink>
         </li>
+        <br />
+        <li>
+          <NavLink to="/users" activeClassName={s.active}>
+            Users
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

@@ -6,6 +6,8 @@ let initialState = {
   users: [
     {
       id: 1,
+      imgUrl:
+        'https://w7.pngwing.com/pngs/891/105/png-transparent-computer-icons-user-others-miscellaneous-face-service.png',
       followed: false,
       fullName: 'Artyom',
       status: 'React dev',
@@ -15,8 +17,10 @@ let initialState = {
       },
     },
     {
-      id: 1,
-      followed: false,
+      id: 2,
+      imgUrl:
+        'https://w7.pngwing.com/pngs/891/105/png-transparent-computer-icons-user-others-miscellaneous-face-service.png',
+      followed: true,
       fullName: 'Alex',
       status: 'Angular dev',
       location: {
@@ -25,7 +29,9 @@ let initialState = {
       },
     },
     {
-      id: 1,
+      id: 3,
+      imgUrl:
+        'https://w7.pngwing.com/pngs/891/105/png-transparent-computer-icons-user-others-miscellaneous-face-service.png',
       followed: false,
       fullName: 'Nick',
       status: 'Vue dev',
@@ -69,6 +75,6 @@ const usersReducer = (state = initialState, action) => {
 
 export const setUsersAC = (users) => ({ type: SET_USERS, users });
 export const followAC = (userId) => ({ type: FOLLOW, userId });
-export const unFollowAC = (userId) => ({ type: UNFOLLOW, userId });
+export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
 
 export default usersReducer;
