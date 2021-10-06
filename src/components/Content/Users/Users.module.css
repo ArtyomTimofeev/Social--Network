@@ -1,3 +1,6 @@
 .avatar img {
   width: 10%;
 }
+.selectedPage {
+  font-weight: bold;
+}

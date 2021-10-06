@@ -4,6 +4,8 @@ const UNFOLLOW = 'UNFOLLOW';
 
 let initialState = {
   users: [],
+  pageSize: 5,
+  totalUsersCount: 0,
 };
 
 const usersReducer = (state = initialState, action) => {
