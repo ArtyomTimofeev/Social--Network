@@ -4,3 +4,9 @@
 .selectedPage {
   font-weight: bold;
 }
+.pages {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
