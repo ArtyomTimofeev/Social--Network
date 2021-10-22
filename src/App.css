@@ -1,3 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
 .app-wrapper {
   display: grid;
   grid-template-areas:
