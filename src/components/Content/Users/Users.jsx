@@ -2,10 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import userPhoto from '../../../assets/images/user.png';
 import s from './Users.module.css';
-import * as axios from 'axios';
-import API from '../../../api/api';
 
-const UsersPres = (props) => {
+const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
   let pages = [];
@@ -29,31 +27,22 @@ const UsersPres = (props) => {
             <div>
               {user.followed ? (
                 <button
-                  disabled={props.followingInProgress}
+                  disabled={props.followingInProgress.some(
+                    (id) => id === user.id
+                  )}
                   onClick={() => {
-                    props.toggleFollowingProgress(true);
-                    API.deleteUserSubscription(user.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(user.id);
-                      }
-                      props.toggleFollowingProgress(false);
-                    });
+                    props.unfollowTK(user.id);
                   }}
                 >
                   Unfollow
                 </button>
               ) : (
                 <button
-                  disabled={props.followingInProgress}
+                  disabled={props.followingInProgress.some(
+                    (id) => id === user.id
+                  )}
                   onClick={() => {
-                    debugger;
-                    props.toggleFollowingProgress(true);
-                    API.addUserSubscription(user.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.follow(user.id);
-                      }
-                      props.toggleFollowingProgress(false);
-                    });
+                    props.followTK(user.id);
                   }}
                 >
                   Follow
@@ -73,7 +62,7 @@ const UsersPres = (props) => {
         {pages.map((page) => (
           <span
             onClick={() => {
-              props.onPageChanged(page);
+              props.onPageChangedTK(page);
             }}
             className={props.currentPage === page && s.selectedPage}
           >
@@ -85,4 +74,4 @@ const UsersPres = (props) => {
   );
 };
 
-export default UsersPres;
+export default Users;
