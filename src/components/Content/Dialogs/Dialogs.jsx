@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
 import s from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
@@ -20,6 +21,7 @@ const Dialogs = (props) => {
   let onSendMessageClick = () => {
     props.addMessage();
   };
+
   return (
     <div>
       <div className={s.dialogs}>

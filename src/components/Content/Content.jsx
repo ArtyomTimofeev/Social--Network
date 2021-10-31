@@ -6,6 +6,7 @@ import Music from './Music/Music';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileContainer';
+import Login from './Login.jsx/Login';
 
 const Content = () => {
   return (
@@ -15,6 +16,7 @@ const Content = () => {
       <Route component={News} path="/news" />
       <Route component={Music} path="/music" />
       <Route component={UsersContainer} path="/users" />
+      <Route component={Login} path="/login" />
     </div>
   );
 };
