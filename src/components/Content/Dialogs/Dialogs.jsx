@@ -1,44 +1,27 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 
-import s from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
-import Message from './MessageItem/Message';
+import MessageItem from './MessageItem/MessageItem';
+import NewMessageForm from './NewMessageForm/NewMessageForm';
+import styles from './Dialogs.module.scss';
 
-const Dialogs = (props) => {
-  let dialogsElements = props.dialogsPage.dialogsData.map((dialog) => (
-    <DialogsItem name={dialog.name} id={dialog.id} />
+const Dialogs = ({ dialogsPage, addMessage }) => {
+  let dialogsElements = dialogsPage.dialogsData.map((dialog) => (
+    <DialogsItem name={dialog.name} id={dialog.id} key={dialog.id} />
   ));
 
-  let messagesElements = props.dialogsPage.messagesData.map((message) => (
-    <Message message={message.message} />
+  let messagesElements = dialogsPage.messagesData.map((message) => (
+    <MessageItem message={message.message} key={message.id} />
   ));
-
-  let onNewMessageChange = (e) => {
-    let body = e.target.value;
-    props.updateNewMessageBody(body);
-  };
-  let onSendMessageClick = () => {
-    props.addMessage();
-  };
 
   return (
-    <div>
-      <div className={s.dialogs}>
-        <div className={s.dialogsItems}>{dialogsElements}</div>
-        <div className={s.messages}>
-          <div>{messagesElements}</div>
-          <div>
-            <textarea
-              onChange={onNewMessageChange}
-              placeholder="Enter your message"
-              value={props.dialogsPage.newMessageBody}
-            ></textarea>
-          </div>
-          <div>
-            <button onClick={onSendMessageClick}>Отправить</button>
-          </div>
-        </div>
+    <div className={styles.dialogsContainer}>
+      <div className={styles.dialogsPage}>
+        <div className={styles.dialogs}>{dialogsElements}</div>
+        <div className={styles.messages}>{messagesElements}</div>
+      </div>
+      <div className={styles.newMessageForm}>
+        <NewMessageForm addMessage={addMessage} />
       </div>
     </div>
   );

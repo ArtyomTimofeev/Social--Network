@@ -1,0 +1,22 @@
+.dialogsContainer {
+  padding: 30px;
+  height: 100%;
+  .dialogsPage {
+    display: flex;
+    height: 85%;
+    .dialogs {
+      width: 20%;
+      border-right: 2px solid lightslategrey;
+      overflow: auto;
+    }
+    .messages {
+      padding-left: 30px;
+      max-width: 75%;
+      overflow: auto;
+    }
+  }
+  .newMessageForm {
+    position: sticky;
+    bottom: 20px;
+  }
+}

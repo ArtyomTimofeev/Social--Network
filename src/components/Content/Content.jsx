@@ -6,7 +6,7 @@ import Music from './Music/Music';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileContainer';
-import Login from './Login.jsx/Login';
+import Login from './Login/Login';
 
 const Content = () => {
   return (

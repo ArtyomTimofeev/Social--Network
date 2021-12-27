@@ -18,11 +18,11 @@ h2 {
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
   width: 1216px;
+  min-height: 100vh;
   margin: 0 auto;
 }
 
 .global {
   width: 100%;
   background-color: #fff0de;
-  height: 100vh;
 }
