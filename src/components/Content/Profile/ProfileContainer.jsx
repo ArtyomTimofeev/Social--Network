@@ -25,7 +25,7 @@ export class ProfileContainer extends Component {
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  profileStatus: state.profilePage.profileStatus,
+  profileStatusText: state.profilePage.profileStatusText,
 });
 export default compose(
   connect(mapStateToProps, {

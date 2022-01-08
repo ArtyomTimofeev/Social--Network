@@ -40,5 +40,5 @@ export default dialogsReducer;
 
 export const addMessageActionCreator = (newMessageBody) => ({
   type: ADD_MESSAGE,
-  newMessageBody: newMessageBody,
+  newMessageBody,
 });
