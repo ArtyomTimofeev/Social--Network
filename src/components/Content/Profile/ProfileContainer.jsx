@@ -33,6 +33,5 @@ export default compose(
     updateProfileStatusTK,
     getProfileStatusTK,
   }),
-  withRouter,
-  withAuthRedirect
+  withRouter
 )(ProfileContainer);

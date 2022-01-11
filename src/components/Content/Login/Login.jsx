@@ -4,6 +4,9 @@ import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Checkbox, Container, FormControlLabel } from '@mui/material';
+import { connect } from 'react-redux';
+import { loginTK } from '../../../redux/auth-reducer';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 const validationSchema = yup.object({
   email: yup
@@ -16,17 +19,24 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-const Login = () => {
+const Login = ({ loginTK, isAuth }) => {
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
+      rememberMe: false,
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const { email, password, rememberMe } = values;
+      console.log(email, password, rememberMe);
+      loginTK(email, password, rememberMe);
     },
   });
+
+  if (isAuth) {
+    return <Redirect to="/profile" />;
+  }
 
   return (
     <Container maxWidth="xs" sx={{ paddingY: '20%' }}>
@@ -60,13 +70,14 @@ const Login = () => {
           required
         />
         <FormControlLabel
-          control={<Checkbox defaultChecked />}
+          control={<Checkbox />}
           label="Remember me"
           margin="dense"
           type="checkbox"
           id="checkbox"
-          name="checkbox"
+          name="rememberMe"
           onChange={formik.handleChange}
+          value={formik.values.rememberMe}
         />
 
         <Button color="primary" variant="contained" fullWidth type="submit">
@@ -77,4 +88,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps, { loginTK })(Login);
