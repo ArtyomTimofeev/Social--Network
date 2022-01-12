@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './Content.module.css';
 import { Route } from 'react-router-dom';
 import News from './News/News';
@@ -7,8 +7,13 @@ import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileContainer';
 import Login from './Login/Login';
+import { connect } from 'react-redux';
+import { getAuthUsersDataTK } from '../../redux/auth-reducer';
 
-const Content = () => {
+const Content = (props) => {
+  useEffect(() => {
+    props.getAuthUsersDataTK();
+  }, []);
   return (
     <div className={s.content}>
       <Route component={ProfileContainer} path="/profile/:userId?" />
@@ -21,4 +26,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default connect(null, { getAuthUsersDataTK })(Content);

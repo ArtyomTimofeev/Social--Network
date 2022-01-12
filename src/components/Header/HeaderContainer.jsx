@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAuthUsersDataTK, logoutTK } from '../../redux/auth-reducer';
+import { logoutTK } from '../../redux/auth-reducer';
 import Header from './Header';
 
 class HeaderContainer extends Component {
-  componentDidMount() {
-    this.props.getAuthUsersDataTK();
-  }
-
   render() {
     return (
       <>
@@ -23,6 +19,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default HeaderContainer = connect(mapStateToProps, {
-  getAuthUsersDataTK,
   logoutTK,
 })(HeaderContainer);

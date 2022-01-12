@@ -3,7 +3,12 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { Checkbox, Container, FormControlLabel } from '@mui/material';
+import {
+  Checkbox,
+  Container,
+  FormControlLabel,
+  Typography,
+} from '@mui/material';
 import { connect } from 'react-redux';
 import { loginTK } from '../../../redux/auth-reducer';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
@@ -19,7 +24,7 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-const Login = ({ loginTK, isAuth }) => {
+const Login = ({ loginTK, isAuth, status }) => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -27,10 +32,10 @@ const Login = ({ loginTK, isAuth }) => {
       rememberMe: false,
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { setStatus, setSubmitting }) => {
       const { email, password, rememberMe } = values;
-      console.log(email, password, rememberMe);
-      loginTK(email, password, rememberMe);
+      loginTK(email, password, rememberMe, setStatus);
+      setSubmitting(false);
     },
   });
 
@@ -83,6 +88,12 @@ const Login = ({ loginTK, isAuth }) => {
         <Button color="primary" variant="contained" fullWidth type="submit">
           Login
         </Button>
+        <Typography
+          sx={{ textAlign: 'center', color: '#d32f2f', mt: '10px' }}
+          variant="h5"
+        >
+          {formik.status}
+        </Typography>
       </form>
     </Container>
   );

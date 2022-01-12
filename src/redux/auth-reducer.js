@@ -32,14 +32,16 @@ export const getAuthUsersDataTK = () => (dispatch) => {
   });
 };
 
-export const loginTK = (email, password, rememberMe) => (dispatch) => {
-  AuthAPI.login(email, password, rememberMe).then((data) => {
-    console.log(data);
-    if (data.resultCode === 0) {
-      dispatch(getAuthUsersDataTK());
-    }
-  });
-};
+export const loginTK =
+  (email, password, rememberMe, setStatus) => (dispatch) => {
+    AuthAPI.login(email, password, rememberMe).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(getAuthUsersDataTK());
+      } else {
+        setStatus(data.messages);
+      }
+    });
+  };
 export const logoutTK = () => (dispatch) => {
   AuthAPI.logout().then((data) => {
     if (data.resultCode === 0) {
