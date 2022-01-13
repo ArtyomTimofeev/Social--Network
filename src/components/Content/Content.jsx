@@ -8,12 +8,15 @@ import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileContainer';
 import Login from './Login/Login';
 import { connect } from 'react-redux';
-import { getAuthUsersDataTK } from '../../redux/auth-reducer';
+import { initializeAppTK } from '../../redux/app-reducer';
+import Preloader from '../Common-components/Preloader';
 
-const Content = (props) => {
+const Content = ({ initialized, initializeAppTK }) => {
   useEffect(() => {
-    props.getAuthUsersDataTK();
+    initializeAppTK();
   }, []);
+
+  if (!initialized) return <Preloader />;
   return (
     <div className={s.content}>
       <Route component={ProfileContainer} path="/profile/:userId?" />
@@ -26,4 +29,8 @@ const Content = (props) => {
   );
 };
 
-export default connect(null, { getAuthUsersDataTK })(Content);
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized,
+});
+
+export default connect(mapStateToProps, { initializeAppTK })(Content);

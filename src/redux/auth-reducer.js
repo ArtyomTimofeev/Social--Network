@@ -24,7 +24,7 @@ export const setAuthUsersData = (id, email, login, isAuth) => ({
 });
 
 export const getAuthUsersDataTK = () => (dispatch) => {
-  AuthAPI.getAuthMe().then((data) => {
+  return AuthAPI.getAuthMe().then((data) => {
     if (data.resultCode === 0) {
       const { id, email, login } = data.data;
       dispatch(setAuthUsersData(id, email, login, true));
